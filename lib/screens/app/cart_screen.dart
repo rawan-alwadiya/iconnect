@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:iconnect/bloc/bloc/cart_bloc.dart';
 import 'package:iconnect/bloc/events/cart_event.dart';
 import 'package:iconnect/bloc/states/cart_state.dart';
@@ -72,12 +72,15 @@ class _CartScreenState extends State<CartScreen> {
                       //   size: 30,
                       //   color: Color(0xFF476269),
                       // ),
-                      Badge(
-                        badgeColor: Color(0xFFFF5959),
+                      badges.Badge(
+                        // backgroundColor: Color(0xFFFF5959),
+                        badgeStyle: badges.BadgeStyle(
+                            padding: EdgeInsets.all(5),
+                            badgeColor: Color(0xFFFF5959)
+                        ),
                         badgeContent: Text('${state.cart.length}', style: GoogleFonts.poppins(
                           color: Colors.white,
                         ),),
-                        padding: EdgeInsets.all(5),
                         // child: InkWell(
                         //   onTap: (){
                         //     // Navigator.pushNamed(context, '/cart_screen');
@@ -360,12 +363,14 @@ class _CartScreenState extends State<CartScreen> {
                       //   size: 30,
                       //   color: Color(0xFF476269),
                       // ),
-                      Badge(
-                        badgeColor: Color(0xFFFF5959),
+                      badges.Badge(
                         badgeContent: Text('0', style: GoogleFonts.poppins(
                           color: Colors.white,
                         ),),
-                        padding: EdgeInsets.all(5),
+                        badgeStyle: badges.BadgeStyle(
+                          badgeColor: Color(0xFFFF5959),
+                          padding: EdgeInsets.all(5),
+                        ),
                         // child: InkWell(
                         //   onTap: (){
                         //     // Navigator.pushNamed(context, '/cart_screen');
